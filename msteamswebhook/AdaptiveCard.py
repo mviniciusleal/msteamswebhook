@@ -1,4 +1,5 @@
 from msteamswebhook.base import *
+from typing import List
 
 @adcard()
 class AdaptiveCard:
@@ -7,8 +8,8 @@ class AdaptiveCard:
     _version = "1.2"
 
     def __init__(self,    
-    body: list[ Element ],
-    actions: list[ Action ]=[],
+    body: List[ Element ],
+    actions: List[ Action ]=[],
     selectAction: SelectAction=None,
     fallbackText: str=None,
     backgroundImage: str=None,

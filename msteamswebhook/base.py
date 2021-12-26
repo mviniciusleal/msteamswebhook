@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Union
+from typing import Union, List, Dict
 
 def adcard():
     def wrapper(K):
@@ -149,7 +149,7 @@ class FontWeight(Enum):
 ##################################
 @adcard()
 class Item:
-    def __init__(self, additionalProperties: dict={}):
+    def __init__(self, additionalProperties: Dict=None):
         self._additionalProperties = additionalProperties
 
 @adcard()
@@ -215,7 +215,7 @@ class Input(ToggleableItem):
     separator: bool=None,
     spacing: Spacing=None,
     isVisible: bool=None,
-    additionalProperties: dict={}
+    additionalProperties: Dict=None
     ):
         super().__init__(fallback, height, separator, spacing, id, isVisible)
         self._id = id
@@ -261,7 +261,7 @@ class Column(ToggleableItem):
     spacing: Spacing=None,
     id: str=None,
     isVisible: bool=None,
-    items: list[Element]=[],
+    items: List[Element]=[],
     backgroundImage: str=None,
     bleed: bool=None,
     minHeight: str=None,
@@ -269,7 +269,7 @@ class Column(ToggleableItem):
     style: ContainerStyle=None,
     verticalContentAlignment: VerticalContentAlignment=None,
     width: Union[str, int]=None,
-    additionalProperties: dict=None):
+    additionalProperties: Dict=None):
         super().__init__(fallback, height, separator, spacing, id, isVisible)
         self._items = items
         self._backgroundImage = backgroundImage

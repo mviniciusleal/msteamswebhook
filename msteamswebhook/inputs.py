@@ -1,11 +1,12 @@
 from msteamswebhook.base import *
+from typing import Union, List, Dict
 
 class Input_ChoiceSet(Input):
     _type = "Input.ChoiceSet"
 
     def __init__(self,
         id: str,
-        choices: list[Input_Choice],
+        choices: List[Input_Choice],
         isMultiSelect: bool=None,
         style: ChoiceInputStyle=None,
         value: str=None,
@@ -20,7 +21,7 @@ class Input_ChoiceSet(Input):
         separator: bool=None,
         spacing: Spacing=None,
         isVisible: bool=None,
-        additionalProperties: dict={}
+        additionalProperties: Dict=None
     ):
         super().__init__(id, errorMessage, isRequired, label, fallback, height, separator, spacing, isVisible, additionalProperties)
         self._choices = choices
@@ -48,7 +49,7 @@ class Input_Date(Input):
     separator: bool=None,
     spacing: Spacing=None,
     isVisible: bool=None,
-    additionalProperties: dict={}
+    additionalProperties: Dict=None
     ):
         super().__init__(id, errorMessage, isRequired, label, fallback, height, separator, spacing, isVisible, additionalProperties)
         self._max = max
@@ -74,7 +75,7 @@ class Input_Number(Input):
     separator: bool=None,
     spacing: Spacing=None,
     isVisible: bool=None,
-    additionalProperties: dict={}
+    additionalProperties: Dict=None
     ):
         super().__init__(id, errorMessage, isRequired, label, fallback, height, separator, spacing, isVisible, additionalProperties)
         self._max = max
@@ -103,7 +104,7 @@ class Input_Text(Input):
     separator: bool=None,
     spacing: Spacing=None,
     isVisible: bool=None,
-    additionalProperties: dict={}
+    additionalProperties: Dict=None
     ):
         super().__init__(id, errorMessage, isRequired, label, fallback, height, separator, spacing, isVisible, additionalProperties)
         self._isMultiline = isMultiline
@@ -132,7 +133,7 @@ class Input_Time(Input):
     separator: bool=None,
     spacing: Spacing=None,
     isVisible: bool=None,
-    additionalProperties: dict={}
+    additionalProperties: Dict=None
     ):
         super().__init__(id, errorMessage, isRequired, label, fallback, height, separator, spacing, isVisible, additionalProperties)
         self._max = max
@@ -159,7 +160,7 @@ class Input_Toggle(Input):
     separator: bool=None,
     spacing: Spacing=None,
     isVisible: bool=None,
-    additionalProperties: dict={} 
+    additionalProperties: Dict=None
     ):
         super().__init__(id, errorMessage, isRequired, label, fallback, height, separator, spacing, isVisible, additionalProperties)
         self._title = title

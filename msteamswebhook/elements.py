@@ -1,10 +1,11 @@
 from msteamswebhook.base import *
+from typing import Union, List, Dict
 
 class ActionSet(ToggleableItem):
     _type = "ActionSet"
 
     def __init__(self,
-    actions: list[ Action ],
+    actions: List[ Action ],
     #Element
     fallback:  Union[Element, FallbackOption]=None,
     height: BlockElementHeight=None,
@@ -19,7 +20,7 @@ class ColumnSet(ToggleableItem):
     _type = "ColumnSet"
 
     def __init__(self,
-    columns: list[Column]=[],
+    columns: List[Column]=[],
     selectAction: SelectAction=None,
     style: ContainerStyle=None,
     bleed: bool=None,
@@ -32,7 +33,7 @@ class ColumnSet(ToggleableItem):
     spacing: Spacing=None,
     id: str=None,
     isVisible: bool=None,
-    additionalProperties: dict=None):
+    additionalProperties: Dict=None):
         super().__init__(fallback, height, separator, spacing, id, isVisible)
         self._columns = columns
         self._selectAction = selectAction
@@ -52,7 +53,7 @@ class Container(ToggleableItem):
     _type = "Container"
 
     def __init__(self,
-    items: list[Element],
+    items: List[Element],
     selectAction: SelectAction=None,
     style: ContainerStyle=None,
     verticalContentAlignment: VerticalContentAlignment=None,
@@ -67,7 +68,7 @@ class Container(ToggleableItem):
     spacing: Spacing=None,
     id: str=None,
     isVisible: bool=None,
-    additionalProperties: dict=None):
+    additionalProperties: Dict=None):
         super().__init__(fallback, height, separator, spacing, id, isVisible)
         self._items = items
         self._selectAction = selectAction
@@ -83,7 +84,7 @@ class FactSet(ToggleableItem):
     _type = "FactSet"
 
     def __init__(self,
-    facts=list[Fact],
+    facts: List[Fact],
     #Element
     fallback:  Union[Element, FallbackOption]=None,
     height: BlockElementHeight=None,
@@ -112,7 +113,7 @@ class Image(ToggleableItem):
     spacing: Spacing=None,
     id: str=None,
     isVisible: bool=None,
-    additionalProperties: dict={}
+    additionalProperties: Dict=None
     ):
         super().__init__(fallback, height, separator, spacing, id, isVisible)
         self._url = url
@@ -129,7 +130,7 @@ class ImageSet(ToggleableItem):
     _type = "ImageSet"
 
     def __init__(self,
-    images: list[Image],
+    images: List[Image],
     imageSize: ImageSize=None,
     #Element
     fallback:  Union[Element, FallbackOption]=None,
@@ -146,7 +147,7 @@ class Media(ToggleableItem):
     _type = "Media"
 
     def __init__(self,
-    sources:list[MediaSource],
+    sources: List[MediaSource],
     poster: str=None,
     altText: str=None,
     #Element
@@ -165,7 +166,7 @@ class RichTextBlock(ToggleableItem):
     _type = "RichTextBlock"
 
     def __init__(self,
-    inlines: list[ Union[str, Inline] ],
+    inlines: List[ Union[str, Inline] ],
     horizontalAlignment: HorizontalAlignment=None,
     #Element
     fallback:  Union[Element, FallbackOption]=None,

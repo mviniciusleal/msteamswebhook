@@ -46,7 +46,7 @@ class Action_ToggleVisibility(SelectAction):
     _type = "Action.ToggleVisibility"
 
     def __init__(self,
-    targetElements: list[ Union[str, TargetElement] ],
+    targetElements: List[ Union[str, TargetElement] ],
     #Action
     title: str=None,
     iconUrl: str=None,
